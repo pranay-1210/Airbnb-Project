@@ -20,11 +20,6 @@ app.use(hostRouter);
 
 
 app.use((req, res, next) => {
-  console.log("First Middleware", req.url, req.method, req.body);
-  next();
-});
-
-app.use((req, res, next) => {
   res.statusCode = 404;
   res.write(`
             <!DOCTYPE html>
