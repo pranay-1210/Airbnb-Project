@@ -25,18 +25,7 @@ app.use("/host",hostRouter);
 
 app.use((req, res, next) => {
   res.statusCode = 404;
-  res.write(`
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-            <title>Page Not Found</title>
-            </head>
-            <body>
-            <h1>404 Page Not Found</h1>
-            </body>
-            </html>
-        `);
-  res.end();
+  res.sendFile(path.join(rootDir, "views", "404.html"));
 });
 
 const PORT = 3001;
