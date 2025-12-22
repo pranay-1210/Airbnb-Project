@@ -1,22 +1,21 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+
+const hostRouter = require("./hostRouter");
+const storeRouter = require("./storeRouter");
+
+
+
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send(`<!DOCTYPE html>
-    <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <title>Our Airbnb</title>
-    </head>
-    <body>
-    <h1>Welcome to Our Airbnb</h1>
-    <a href="/add-home">Add Home</a>
-    </body>
-    </html>`);
-});
+
+
+
+app.use(storeRouter);
+app.use(hostRouter);
 
 
 

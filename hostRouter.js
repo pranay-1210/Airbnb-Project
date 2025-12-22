@@ -1,4 +1,9 @@
-app.get("/add-home", (req, res) => {
+const express = require("express");
+const hostRouter = express.Router();
+
+
+
+hostRouter.get("/add-home", (req, res) => {
   res.send(`<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -15,7 +20,7 @@ app.get("/add-home", (req, res) => {
     </html>`);
 });
 
-app.post("/add-home", (req, res) => {
+hostRouter.post("/add-home", (req, res) => {
   console.log(req.body);
   res.send(`<!DOCTYPE html>
     <html lang="en">
@@ -29,3 +34,5 @@ app.post("/add-home", (req, res) => {
     </body>
     </html>`);
 });
+
+module.exports = hostRouter;
