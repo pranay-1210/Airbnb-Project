@@ -10,7 +10,7 @@ storeRouter.get("/", (req, res,next) => {
     </head>
     <body>
     <h1>Welcome to Our Airbnb</h1>
-    <a href="/add-home">Add Home</a>
+    <a href="/host/add-home">Add Home</a>
     </body>
     </html>`);
  });

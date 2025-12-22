@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use(storeRouter);
-app.use(hostRouter);
+app.use("/host",hostRouter);
 
 
 
