@@ -2,13 +2,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 
-const hostRouter = require("./hostRouter");
-const storeRouter = require("./storeRouter");
+const hostRouter = require("./routers/hostRouter");
+const storeRouter = require("./routers/storeRouter");
+const rootDir = require("./util/path-util");
 
 
 
 
 const app = express();
+
+app.use(express.static(path.join(rootDir, "public")));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
