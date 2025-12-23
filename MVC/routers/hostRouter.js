@@ -2,24 +2,9 @@
 
 const express = require("express");
 const hostRouter = express.Router();
+const hostController = require("./../controllers/hostController");
 
-
-
-
-
-hostRouter.get("/add-home", (req, res) => {
-  res.render('add-home', {pagetTitle: "Host Your Home"});
-  
-  
-});
-
-const registeredHomes = [];
-
-hostRouter.post("/add-home", (req, res) => {
-  registeredHomes.push(req.body);
-  res.render('home-added', {pagetTitle: "Home Hosted"});
-  
-});
+hostRouter.get("/add-home", hostController.getAddHome);
+hostRouter.post("/add-home", hostController.postAddHome);
 
 exports.hostRouter = hostRouter;
-exports.registeredHomes = registeredHomes;
