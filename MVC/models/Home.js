@@ -1,5 +1,10 @@
+const fs = require("fs");
+const path = require("path");
+const rootDir = require("./../util/path-util");
 
-const registeredHomes = [];
+const homeFilePath = path.join(rootDir, 'data', 'homes.json');
+
+
 
 
 module.exports = class Home {
@@ -12,12 +17,20 @@ module.exports = class Home {
         
     }
 
-    save() {
-        registeredHomes.push(this);
-
+    save(callback) {
+        Home.fetchAll(registeredHomes => {
+            registeredHomes.push(this);
+            fs.writeFile(homeFilePath, JSON.stringify(registeredHomes),callback);
+        });
     }
 
-    static fetchAll() {
-        return registeredHomes;
+    static fetchAll(callback) {
+        fs.readFile(homeFilePath, (error, data) => {
+            if(error){
+                callback([]);
+            } else {
+            callback(JSON.parse(data));
+            }
+        })
     }
 }
