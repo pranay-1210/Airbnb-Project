@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Our Airbnb</title>
-  <link rel="stylesheet" href="/styles/output.css">
+<%- include('partials/head') %>
+
 </head>
 <body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
-  <header class="bg-white shadow-md rounded-lg p-3">
-    <nav>
-      <div class="flex gap-2 flex-wrap">
-        <a href="/" class="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg">
-           Home
-        </a>
+<%- include('partials/nav') %>
 
-        <a href="/host/add-home" class="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg">
-          Add Home
-        </a>
-      </div>
-
-    </nav>
-  </header>
-  <main>
+  <main class="py-4 px-4">
   <div class="flex flex-col items-center justify-center min-h-screen px-4">
     <div class="text-center">
       <h1 class="text-blue-600 text-3xl font-bold mb-4">Welcome to Our Airbnb</h1>
