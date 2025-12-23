@@ -1,13 +1,13 @@
-const registeredHomes = [];
-
+const Home = require("./../models/Home");
 
 exports.getAddHome = (req, res) => {
   res.render('add-home', {pagetTitle: "Host Your Home"});
 }
 
 exports.postAddHome = (req, res) => {
-  registeredHomes.push(req.body);
+  // console.log(req.body);
+  const {houseName, price, location, rating, photoUrl} = req.body;
+  const newHome = new Home(houseName, price, location, rating, photoUrl);
+  newHome.save();
   res.render('home-added', {pagetTitle: "Home Hosted"});
 }
-
-exports.registeredHomes = registeredHomes;

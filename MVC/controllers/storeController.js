@@ -1,7 +1,7 @@
-const { registeredHomes } = require("./hostController");
+const Home = require("./../models/Home");
 
 
 exports.getHome = (req, res,next) => {
-  console.log(registeredHomes);
+  let registeredHomes = Home.fetchAll();
   res.render('index', { homes: registeredHomes, pagetTitle: "Our Airbnb" });
 }
