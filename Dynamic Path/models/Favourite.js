@@ -16,9 +16,16 @@ module.exports = class Favourite {
   }
 
   static addToFavourites(homeId, callback) {
-    Favourite.fetchAll(favouriteIds => {
+    Favourite.fetchAll((favouriteIds) => {
       favouriteIds.push(homeId);
       fs.writeFile(favouriteFilePath, JSON.stringify(favouriteIds), callback);
     });
   }
-}
+
+  static deleteById(deleteHomeId, callback) {
+    Favourite.fetchAll(homeIds => {
+      const newHomeIds = homeIds.filter(homeId => deleteHomeId !== homeId);
+      fs.writeFile(favouriteFilePath, JSON.stringify(newHomeIds), callback);
+    });
+  }
+};
