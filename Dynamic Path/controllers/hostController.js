@@ -61,7 +61,22 @@ exports.postEditHome = (req, res, next) => {
     if (error) {
       console.log("Error while updating home", error);
     } else {
+      console.log("Updated home:", newHome);
       res.redirect("/host/host-homes");
     }
   });
 };
+
+exports.postDeleteHome = (req, res, next) => {
+  const homeId = req.params.homeId;
+  console.log("Came to delete ", homeId);
+  Home.deleteById(homeId, error => {
+    if (error) {
+      console.log("Error while deleting home: ", error);
+    }
+    res.redirect("/host/host-homes");
+}
+);
+};
+
+  
