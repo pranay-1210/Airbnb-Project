@@ -19,13 +19,21 @@
         <div class="flex items-center gap-2 text-lg text-gray-600 mb-6">
           <span>📍</span>
           <span><%= home.location %></span>
+          
         </div>
         
         <div class="flex justify-between items-center pb-8 border-b-2 border-gray-200">
           <span class="text-4xl font-bold text-blue-600">Rs.<%= home.price %></span>
-          <div class="flex items-center gap-2 bg-yellow-50 text-yellow-800 text-lg font-semibold px-6 py-3 rounded-lg border border-yellow-200">
-            <span>⭐</span>
-            <span><%= home.rating %>/5.0</span>
+          <div class="flex items-center gap-4">
+            
+            <%- include('../partials/add-to-favourite', { home }) %>
+
+
+            
+            <div class="flex items-center gap-2 bg-yellow-50 text-yellow-800 text-lg font-semibold px-6 py-3 rounded-lg border border-yellow-200">
+              <span>⭐</span>
+              <span><%= home.rating %>/5.0</span>
+            </div>
           </div>
         </div>
       </div>

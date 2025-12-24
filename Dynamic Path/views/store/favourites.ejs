@@ -7,8 +7,7 @@
   <main class="py-4 px-4">
   <div class="flex flex-col items-center justify-center min-h-screen px-4">
     <div class="text-center">
-      <h1 class="text-blue-600 text-3xl font-bold mb-4">Here are all the Homes</h1>
-      <p class="text-md text-gray-600 mb-12">Let's Find Your Dream Home</p>
+      <h1 class="text-blue-600 text-3xl font-bold mb-4">Here are your favourites</h1>
       
       <ul class="mt-8 flex flex-wrap gap-6 justify-center w-full max-w-6xl">
         <% homes.forEach(home => { %>
@@ -21,11 +20,8 @@
                 <span class="text-xl font-bold text-blue-600">Rs.<%= home.price %></span>
                 <span class="bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded">⭐ <%= home.rating %></span>
                 
-                <%- include('../partials/add-to-favourite', { home }) %>
-              </div>
               <a href="/homes/<%= home.id %>"
-                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-200 w-full text-center block">Details</a>
-            </div>
+                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-3 py-1 rounded text-sm inline-block">Details</a>
           </li>
         <% }); %>
       </ul>
