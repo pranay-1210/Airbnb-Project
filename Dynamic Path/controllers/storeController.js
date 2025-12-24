@@ -11,7 +11,7 @@ exports.getIndex = (req, res, next) => {
 };
 
 exports.getHomes = (req, res, next) => {
-  Home.fetchAll((registeredHomes) => {
+  Home.fetchAll(registeredHomes => {
     res.render("store/homes", {
       homes: registeredHomes,
       pagetTitle: "Our Airbnb",
