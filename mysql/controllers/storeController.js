@@ -21,7 +21,7 @@ exports.getHomes = (req, res, next) => {
 
 exports.getFavourites = (req, res, next) => {
   Favourite.fetchAll((favouriteIds) => {
-    Home.fetchAll().then(([registeredHomes]) => {
+      Home.fetchAll().then(([registeredHomes]) => {
       const favouriteHomes = registeredHomes.filter(home => favouriteIds.includes(home.id));
       res.render("store/favourites", {
         homes: favouriteHomes,
@@ -55,7 +55,8 @@ exports.postDeleteFavourite = (req, res, next) => {
 
 exports.getHomeDetails = (req, res, next) => {
   const homeId = req.params.homeIdentity;
-  Home.findById(homeId, (home) => {
+  Home.findById(homeId).then(([homes]) => {
+    const home = homes[0];
     if (!home) {
       console.log("Home not found");
       return res.redirect("/homes");
