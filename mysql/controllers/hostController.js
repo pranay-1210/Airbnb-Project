@@ -45,7 +45,7 @@ exports.postAddHome = (req, res) => {
 };
 
 exports.getHostHomes = (req, res, next) => {
-  Home.fetchAll((registeredHomes) => {
+  Home.fetchAll().then(([registeredHomes]) => {
     res.render("host/host-homes", {
       homes: registeredHomes,
       pagetTitle: "Host Homes",

@@ -8,12 +8,8 @@ const rootDir = require("./util/path-util");
 
 const errorController = require("./controllers/errorController");
 
-const airbnbDb = require("./util/database-util");
 
-airbnbDb.execute("SELECT * FROM homes").then(([rows, fields]) => {
-  console.log(rows);
 
-})
 
 
 
