@@ -30,17 +30,13 @@ exports.getEditHome = (req, res) => {
   });
 };
 
-exports.postAddHome = (req, res) => {
+exports.postAddHome = (req, res, next) => {
   // console.log(req.body);
-  const { houseName, price, location, rating, photoUrl } = req.body;
-  const newHome = new Home(houseName, price, location, rating, photoUrl);
+  const { houseName, price, location, rating, photoUrl, description } = req.body;
+  const newHome = new Home(houseName, price, location, rating, photoUrl, description );
 
-  newHome.save((error) => {
-    if (error) {
-      res.redirect("/");
-    } else {
+  newHome.save().then(([rows]) => {
       res.render("host/home-added", { pagetTitle: "Home Hosted" });
-    }
   });
 };
 
@@ -54,8 +50,8 @@ exports.getHostHomes = (req, res, next) => {
 };
 
 exports.postEditHome = (req, res, next) => {
-  const { id, houseName, price, location, rating, photoUrl } = req.body;
-  const newHome = new Home(houseName, price, location, rating, photoUrl);
+  const { id, houseName, price, location, rating, photoUrl, description  } = req.body;
+  const newHome = new Home(houseName, price, location, rating, photoUrl, description );
   newHome.id = id;
   newHome.save((error) => {
     if (error) {
